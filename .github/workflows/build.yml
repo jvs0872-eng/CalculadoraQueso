@@ -28,6 +28,11 @@ jobs:
         python -m pip install --upgrade pip setuptools
         python -m pip install "cython<3.0.0" buildozer
 
+    - name: Limpiar cache previa de Buildozer
+      run: |
+        rm -rf ~/.buildozer
+        rm -rf .buildozer
+
     - name: Compilar APK con Buildozer
       run: |
         yes | buildozer -v android debug
